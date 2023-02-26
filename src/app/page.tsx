@@ -1,13 +1,10 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { About, Contact, Hero, Navbar, Projects, Stack } from '@/components'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className='h-full w-full bg-red-400'>
+    <main className='h-full w-full px-5 py-5'>
       <Navbar />
+      <div className="flex h-96"></div>
       <Hero />
       <About />
       <Stack />

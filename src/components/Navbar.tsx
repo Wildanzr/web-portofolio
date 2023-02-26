@@ -1,13 +1,13 @@
-import { RiMenuLine } from "react-icons/ri";
-import Link from "next/link";
+import { RiMenuLine } from 'react-icons/ri'
+import Link from 'next/link'
 
 const Navbar = () => {
   // Navbar data
-  const navData = ["About Me", "Tech Stack", "Projects", "Contacts"];
+  const navData = ['About Me', 'Tech Stack', 'Projects', 'Contacts']
   return (
     <div className="w-full flex flex-row justify-between">
       <div className="flex">
-        <Link href={`/`} className="text-xl lg:text-3xl font-semibold tracking-wider">
+        <Link href={'/'} className="text-xl lg:text-3xl font-semibold tracking-wider">
           Wildanzr
         </Link>
       </div>
@@ -21,8 +21,8 @@ const Navbar = () => {
           {navData.map((item, index) => (
             <li key={index} className="flex flex-col cursor-pointer group">
               <Link
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className="text-lg font-normal tracking-wide hover:font-semibold duration-500"
+                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                className="text-lg font-normal tracking-wide duration-500"
               >
                 {item}
               </Link>
@@ -32,7 +32,7 @@ const Navbar = () => {
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

@@ -1,22 +1,41 @@
+'use client'
 import { createContext, useContext, useState, ReactNode } from 'react'
 
-interface GlobalProviderProps {
+interface IGlobalProvider {
   children: ReactNode
 }
 
-const GlobalContext = createContext({})
+interface IGlobalContext {
+  globalStates: {
+    isDark: boolean | null
+    setIsDark: (value: boolean | null) => void
+    isMenuOpen: boolean | null
+    setIsMenuOpen: (value: boolean | null) => void
+  };
+}
 
-export const GlobalProvider = ({ children }: GlobalProviderProps) => {
-  const [isDark, setIsDark] = useState(false)
+const GlobalContext = createContext<IGlobalContext>({
+  globalStates: {
+    isDark: null,
+    setIsDark: () => {},
+    isMenuOpen: null,
+    setIsMenuOpen: () => {}
+  }
+})
 
-  // Global states
+export const GlobalProvider = ({ children }: IGlobalProvider) => {
+  const [isDark, setIsDark] = useState<boolean | null>(false)
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean | null>(false)
+
   const globalStates = {
     isDark,
-    setIsDark
+    setIsDark,
+    isMenuOpen,
+    setIsMenuOpen
   }
 
   return (
-    <GlobalContext.Provider value={globalStates}>
+    <GlobalContext.Provider value={{ globalStates }}>
       {children}
     </GlobalContext.Provider>
   )

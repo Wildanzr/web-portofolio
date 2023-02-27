@@ -1,4 +1,5 @@
-import { About, Contact, Hero, Navbar, Projects, Stack } from '@/components'
+import { About, Contact, Hero, Projects, Stack } from '@/components'
+import { Navbar } from '@/components/navbar'
 
 export default function Home () {
   return (

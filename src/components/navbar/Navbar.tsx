@@ -1,8 +1,10 @@
 'use client'
 import { useGlobal } from '@/contexts/Global'
 import MobileNavbar from './MobileNavbar'
+import DarkSwitcher from './DarkSwitcher'
 
-import { RiMenuLine } from 'react-icons/ri'
+import { motion } from 'framer-motion'
+import { RiMenuLine, RiMenuFoldLine } from 'react-icons/ri'
 
 interface IUseGlobal {
   globalStates: {
@@ -19,10 +21,22 @@ const Navbar = () => {
 
   // UseGlobal context
   const { globalStates }: IUseGlobal = useGlobal()
-  const { isMenuOpen, setIsMenuOpen } = globalStates
+  const { isMenuOpen, setIsMenuOpen, isDark } = globalStates
+
+  if (typeof window !== 'undefined') {
+    if (isDark) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+      document.getElementById('theme')?.classList.remove('bglight')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+      document.getElementById('theme')?.classList.remove('bgdark')
+    }
+  }
 
   return (
-    <div className="w-full flex flex-col sticky top-0 space-y-2 pt-3">
+    <div className="w-full rounded-lg flex flex-col sticky top-0 space-y-2 py-3">
       <div className="w-full flex flex-row justify-between">
         {/* Name Logo */}
         <div className="flex">
@@ -35,13 +49,45 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Nav */}
-        <div className="w-full flex absolute z-50 justify-end items-end md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <RiMenuLine className="text-3xl" />
+        <div className="w-full flex absolute z-50 justify-end items-end md:hidden">
+          <div className="flex flex-row space-x-5 items-center justify-center">
+            <DarkSwitcher />
+            <motion.div
+              className="flex items-center justify-center rounded-full"
+              layout
+              transition={
+                {
+                  type: 'tween',
+                  ease: 'easeInOut',
+                  duration: 0.5
+                }
+              }
+            >
+              <motion.div whileTap={{ rotate: 60 }}>
+                {isMenuOpen
+                  ? (
+                  <RiMenuLine
+                    className="text-3xl"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  />
+                    )
+                  : (
+                  <RiMenuFoldLine
+                    className="text-3xl"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  />
+                    )}
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex flex-row">
-          <ul className="w-full flex flex-row items-end space-x-5">
+          <ul className="w-full flex flex-row items-center justify-center space-x-5">
+            <li className="flex flex-col cursor-pointer">
+              <DarkSwitcher />
+            </li>
             {navData.map((item, index) => (
               <li key={index} className="flex flex-col cursor-pointer group">
                 <a
@@ -50,7 +96,7 @@ const Navbar = () => {
                 >
                   {item}
                 </a>
-                <span className="-bottom-1 left-0 w-0 h-0.5 rounded-full bg-blue-400 transition-all group-hover:w-full duration-500"></span>
+                <span className="-bottom-1 left-0 w-0 h-0.5 rounded-full bg-pink-400 dark:bg-blue-400 transition-all group-hover:w-full duration-500" />
               </li>
             ))}
           </ul>

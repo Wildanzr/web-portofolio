@@ -11,10 +11,15 @@ export const metadata = {
 
 export default function RootLayout ({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="bg-main text-milk">
-      <GlobalProvider>
+    <GlobalProvider>
+      <html
+        lang="en"
+        className="bg-main text-snow"
+        style={{ scrollBehavior: 'smooth' }}
+        id="theme"
+      >
         <body>{children}</body>
-      </GlobalProvider>
-    </html>
+      </html>
+    </GlobalProvider>
   )
 }

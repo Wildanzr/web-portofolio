@@ -3,7 +3,6 @@ import { useGlobal } from '@/contexts/Global'
 import MobileNavbar from './MobileNavbar'
 
 import { RiMenuLine } from 'react-icons/ri'
-import Link from 'next/link'
 
 interface IUseGlobal {
   globalStates: {
@@ -16,27 +15,27 @@ interface IUseGlobal {
 
 const Navbar = () => {
   // Navbar data
-  const navData = ['About Me', 'Tech Stack', 'Projects', 'Contacts']
+  const navData = ['About', 'Tech Stack', 'Projects', 'Contacts']
 
   // UseGlobal context
   const { globalStates }: IUseGlobal = useGlobal()
   const { isMenuOpen, setIsMenuOpen } = globalStates
 
   return (
-    <div className="w-full flex flex-col space-y-2">
+    <div className="w-full flex flex-col sticky top-0 space-y-2 pt-3">
       <div className="w-full flex flex-row justify-between">
         {/* Name Logo */}
         <div className="flex">
-          <Link
-            href={'/'}
+          <a
+            href={'#me'}
             className="text-xl lg:text-3xl font-semibold xl:font-bold tracking-wider xl:tracking-widest"
           >
             Wildan
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Nav */}
-        <div className="flex md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <div className="w-full flex absolute z-50 justify-end items-end md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <RiMenuLine className="text-3xl" />
         </div>
 
@@ -45,12 +44,12 @@ const Navbar = () => {
           <ul className="w-full flex flex-row items-end space-x-5">
             {navData.map((item, index) => (
               <li key={index} className="flex flex-col cursor-pointer group">
-                <Link
+                <a
                   href={`#${item.toLowerCase().replace(' ', '-')}`}
                   className="text-lg font-normal tracking-wide duration-500"
                 >
                   {item}
-                </Link>
+                </a>
                 <span className="-bottom-1 left-0 w-0 h-0.5 rounded-full bg-blue-400 transition-all group-hover:w-full duration-500"></span>
               </li>
             ))}
@@ -59,7 +58,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Nav */}
-      <div className="w-full flex md:hidden">
+      <div className="w-full absolute top-10 flex md:hidden">
         <MobileNavbar />
       </div>
     </div>

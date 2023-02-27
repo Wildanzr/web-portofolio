@@ -1,17 +1,24 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import { About, Contact, Hero, Navbar, Projects, Stack } from '@/components'
+import { About, Contact, Hero, Projects, Stack } from '@/components'
+import { Navbar } from '@/components/navbar'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function Home () {
   return (
-    <main className='h-full w-full bg-red-400'>
+    <main className='h-full w-full px-5 py-5 bg-snow text-alternate dark:bg-main dark:text-snow duration-500 ease-out'>
       <Navbar />
+      <div className="flex h-96"></div>
+      <div className="flex h-96"></div>
       <Hero />
+      <div className="flex h-96"></div>
+      <div className="flex h-96"></div>
       <About />
+      <div className="flex h-96"></div>
+      <div className="flex h-96"></div>
       <Stack />
+      <div className="flex h-96"></div>
+      <div className="flex h-96"></div>
       <Projects />
+      <div className="flex h-96"></div>
+      <div className="flex h-96"></div>
       <Contact />
     </main>
   )

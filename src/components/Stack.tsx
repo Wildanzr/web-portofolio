@@ -1,6 +1,6 @@
 const Stack = () => {
   return (
-    <div>Stack</div>
+    <div id="tech-stack">Stack</div>
   )
 }
 

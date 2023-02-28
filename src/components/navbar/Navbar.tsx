@@ -66,13 +66,13 @@ const Navbar = () => {
               <motion.div whileTap={{ rotate: 60 }}>
                 {isMenuOpen
                   ? (
-                  <RiMenuLine
+                  <RiMenuFoldLine
                     className="text-3xl"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                   />
                     )
                   : (
-                  <RiMenuFoldLine
+                  <RiMenuLine
                     className="text-3xl"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                   />

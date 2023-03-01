@@ -1,4 +1,4 @@
-import { TitleSection, Highlight, Bold } from './others'
+import { TitleSection, Highlight, Bold, Experience } from './others'
 
 const About = () => {
   return (
@@ -31,6 +31,22 @@ const About = () => {
           Let&apos;s work together to build innovative and high-performing
           applications that drive your business forward. 😎
         </p>
+      </div>
+
+      <div className="w-full flex flex-col items-center justify-center py-10 lg:px-20 space-y-8">
+        <div className="w-full flex flex-col justify-start items-center">
+          <p className='font-light text-2xl text-center tracking-wider'>Experiences</p>
+        </div>
+
+        <div className="w-full flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-x-5 lg:space-y-0 items-start justify-around">
+          <Experience year="2020" title="Basic Programming Assistant" at="FILKOM" place="University of Brawijaya" pos={true} />
+          <Experience year="2021" title="Object Oriented Assistant" at="FILKOM" place="University of Brawijaya" pos={false} />
+        </div>
+
+        <div className="w-full flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-x-5 lg:space-y-0 items-start justify-around">
+          <Experience year="2021" title="DTS Scholarship Awardee" at="Online" place="University of Brawijaya" pos={true} />
+          <Experience year="2021" title="Object Oriented Assistant" at="FILKOM" place="University of Brawijaya" pos={false} />
+        </div>
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import { TitleSection, Highlight } from './others'
+import { TitleSection, Highlight, Bold } from './others'
 
 const About = () => {
   return (
@@ -16,9 +16,9 @@ const About = () => {
           Information Technology Education at the University of Brawijaya, I am
           passionate about exploring new technologies and constantly improving
           my skills as a
-          <Highlight content=" Full-Stack Developer" />. I specialize in using
-          the <Highlight content="MERN Stack" />, which includes
-          <Highlight content=" MongoDB, Express, React, Node.js" /> and
+          <Bold content=" Full-Stack Developer" />. I specialize in using
+          the <Bold content="MERN Stack" />, which includes
+          <Bold content=" MongoDB, Express, React, Node.js" /> and
           other related technologies.
         </p>
         <p className="text-center font-light text-base md:text-lg lg:text-xl tracking-wide">

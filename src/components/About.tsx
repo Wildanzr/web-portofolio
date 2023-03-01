@@ -38,14 +38,16 @@ const About = () => {
           <p className='font-light text-2xl text-center tracking-wider'>Experiences</p>
         </div>
 
-        <div className="w-full flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-x-5 lg:space-y-0 items-start justify-around">
-          <Experience year="2020" title="Basic Programming Assistant" at="FILKOM" place="University of Brawijaya" pos={true} />
-          <Experience year="2021" title="Object Oriented Assistant" at="FILKOM" place="University of Brawijaya" pos={false} />
-        </div>
+        <div className="flex flex-col space-y-8">
+          <div className="w-full flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-x-5 lg:space-y-0 items-start justify-around">
+            <Experience year="2020" title="Basic Programming Assistant" at="FILKOM" place="University of Brawijaya" pos={true} />
+            <Experience year="2021" title="Object Oriented Assistant" at="FILKOM" place="University of Brawijaya" pos={false} />
+          </div>
 
-        <div className="w-full flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-x-5 lg:space-y-0 items-start justify-around">
-          <Experience year="2021" title="DTS Scholarship Awardee" at="Online" place="University of Brawijaya" pos={true} />
-          <Experience year="2021" title="Object Oriented Assistant" at="FILKOM" place="University of Brawijaya" pos={false} />
+          <div className="w-full flex flex-col lg:flex-row space-x-0 space-y-5 lg:space-x-5 lg:space-y-0 items-start justify-around">
+            <Experience year="2021" title="DTS Scholarship Awardee" at="Online" place="University of Brawijaya" pos={true} />
+            <Experience year="2021" title="Object Oriented Assistant" at="FILKOM" place="University of Brawijaya" pos={false} />
+          </div>
         </div>
       </div>
     </div>

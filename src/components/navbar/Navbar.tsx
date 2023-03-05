@@ -36,13 +36,13 @@ const Navbar = () => {
   }
 
   return (
-    <div className="w-full rounded-lg flex flex-col sticky top-0 space-y-2 py-3">
+    <div className="w-full bg-snow dark:bg-main rounded-lg flex flex-col sticky top-0 space-y-2 py-3 z-50 duration-500 ease-out">
       <div className="w-full flex flex-row justify-between">
         {/* Name Logo */}
         <div className="flex">
           <a
             href={'#me'}
-            className="text-xl lg:text-3xl font-semibold xl:font-bold tracking-wider xl:tracking-widest"
+            className="text-4xl font-semibold xl:font-bold tracking-wider xl:tracking-widest"
           >
             Wildan
           </a>
@@ -66,13 +66,13 @@ const Navbar = () => {
               <motion.div whileTap={{ rotate: 60 }}>
                 {isMenuOpen
                   ? (
-                  <RiMenuLine
+                  <RiMenuFoldLine
                     className="text-3xl"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                   />
                     )
                   : (
-                  <RiMenuFoldLine
+                  <RiMenuLine
                     className="text-3xl"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                   />

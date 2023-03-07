@@ -1,14 +1,29 @@
 import { ReactNode } from 'react'
 import { GlobalProvider } from '@/contexts/Global'
-import Head from 'next/head'
-import Script from 'next/script'
 
 import './globals.css'
 
 export const metadata = {
   title: 'Graita Sukma Febriansyah Triwildan Azmi',
   description:
-    'Graita Sukma Febriansyah Triwildan Azmi, a full-stack developer from Indonesia'
+    'Graita Sukma Febriansyah Triwildan Azmi, a full-stack developer from Indonesia',
+  keywords: 'Graita Sukma Febriansyah Triwildan Azmi, Graita Sukma Febriansyah, Wildanz Reyz, Wildanzreyz, Wildan, Graita, Sukma, Febriansyah, Triwildan, Azmi, Graita Sukma, Graita Sukma Febriansyah, Graita Sukma Febriansyah Triwildan',
+  abstract: 'Graita Sukma Febriansyah Triwildan Azmi, a full-stack developer from Indonesia',
+  applicationName: "Wildan's Portfolio",
+  authors: [{ name: 'Graita Sukma Febriansyah Triwildan Azmi', url: 'https://wildanzr.my.id' }],
+  creator: 'Graita Sukma Febriansyah Triwildan Azmi',
+  publisher: 'Vercel',
+  viewport: 'width=device-width, initial-scale=1',
+  twitter: {
+    siteId: '@wildanzr24',
+    creatorId: '@wildanzr24',
+    card: 'summary_large_image',
+    site: '@wildanzr24',
+    creator: '@wildanzr24',
+    title: 'Graita Sukma Febriansyah Triwildan Azmi',
+    description: 'Graita Sukma Febriansyah Triwildan Azmi, a full-stack developer from Indonesia',
+    images: 'https://wildanzr.my.id/images/me.png'
+  }
 }
 
 export default function RootLayout ({ children }: { children: ReactNode }) {
@@ -19,23 +34,6 @@ export default function RootLayout ({ children }: { children: ReactNode }) {
       style={{ scrollBehavior: 'smooth' }}
       id="theme"
     >
-      <Head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || []
-            function gtag(){dataLayer.push(arguments)}
-            gtag('js', new Date())
-          
-            gtag('config', 'G-D39WFJ8Z2L')
-            `
-          }}
-        />
-      </Head>
-      <Script
-        strategy="afterInteractive"
-        src={'https://www.googletagmanager.com/gtag/js?id=G-D39WFJ8Z2L'}
-      />
       <GlobalProvider>
         <body>{children}</body>
       </GlobalProvider>

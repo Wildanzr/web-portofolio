@@ -12,8 +12,6 @@ export default function Home () {
       <Navbar />
       <Hero />
       <About />
-      <div className="flex h-96"></div>
-      <div className="flex h-96"></div>
       <Stack />
       <div className="flex h-96"></div>
       <div className="flex h-96"></div>

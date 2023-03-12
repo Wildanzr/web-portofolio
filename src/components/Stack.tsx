@@ -1,4 +1,8 @@
-import { TitleSection } from './others'
+import { TitleSection, DisplayLottie } from './others'
+
+import Development from '../assets/lotties/development.json'
+import Cloud from '../assets/lotties/cloud.json'
+import Blockchain from '../assets/lotties/blockchain.json'
 
 const Stack = () => {
   return (
@@ -8,14 +12,12 @@ const Stack = () => {
     >
       <TitleSection title="Tech Stack" />
 
-      <div className="w-full flex flex-row items-center justify-between">
+      <div className="w-full flex flex-row py-5 items-start justify-between">
         <div className="w-full flex items-center justify-center">
-          <h3 className="font-3xl font-medium tracking-wider">
-            Tempat gambar
-          </h3>
+          <DisplayLottie animationData={Development} />
         </div>
         <div className="w-full flex items-center justify-center">
-          <h3 className="font-3xl font-medium tracking-wider">
+          <h3 className="text-2xl font-normal tracking-wider">
             Full Stack Development
           </h3>
         </div>

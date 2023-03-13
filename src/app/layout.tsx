@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { GlobalProvider } from '@/contexts/Global'
 
 import './globals.css'
+// import 'antd/dist/reset.css'
 
 export const metadata = {
   title: 'Graita Sukma Febriansyah Triwildan Azmi',

@@ -13,8 +13,6 @@ export default function Home () {
       <Hero />
       <About />
       <Stack />
-      <div className="flex h-96"></div>
-      <div className="flex h-96"></div>
       <Projects />
       <div className="flex h-96"></div>
       <div className="flex h-96"></div>

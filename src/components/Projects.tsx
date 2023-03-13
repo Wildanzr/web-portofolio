@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper'
+import { Autoplay } from 'swiper'
 
 import 'swiper/swiper.min.css'
 import 'swiper/css/pagination'
@@ -21,6 +21,15 @@ const Projects = () => {
       ]
     },
     {
+      name: 'BCDev Landing Page',
+      images: [
+        '/images/bc1.png',
+        '/images/bc2.png',
+        '/images/bc3.png',
+        '/images/bc4.png'
+      ]
+    },
+    {
       name: 'Online Learning',
       images: [
         '/images/ol1.png',
@@ -32,15 +41,6 @@ const Projects = () => {
         '/images/ol7.png',
         '/images/ol8.png',
         '/images/ol9.png'
-      ]
-    },
-    {
-      name: 'BCDev Landing Page',
-      images: [
-        '/images/bc1.png',
-        '/images/bc2.png',
-        '/images/bc3.png',
-        '/images/bc4.png'
       ]
     },
     {
@@ -77,16 +77,49 @@ const Projects = () => {
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
-          pagination={{
-            clickable: true
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false
           }}
-          modules={[Pagination]}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              spaceBetween: 0
+            },
+            376: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              spaceBetween: 0
+            },
+            576: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              spaceBetween: 0
+            },
+            768: {
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+              spaceBetween: 30
+            },
+            992: {
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+              spaceBetween: 30
+            },
+            1200: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+              spaceBetween: 30
+            }
+          }}
+          modules={[Autoplay]}
           className="mySwiper w-full h-full flex flex-col space-y-3"
         >
           <div className="w-full flex flex-row space-x-4">
             {projects.map((project, index) => (
               <SwiperSlide key={index} className="w-full h-full">
-                <div className="w-full h-full flex flex-col space-y-3">
+                <div className="w-full h-full flex flex-col space-y-5 items-center justify-center">
                   <DisplayProject images={project.images} />
                   <h4 className="text-center text-xl font-medium">
                     {project.name}

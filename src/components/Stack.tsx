@@ -11,7 +11,7 @@ const Stack = () => {
     {
       name: 'Full Stack Developer',
       icon: Development,
-      align: 'flex-row',
+      align: 'lg:flex-row',
       emoji: '🚀',
       services: [
         'Building secure and scalable application server',
@@ -22,7 +22,7 @@ const Stack = () => {
     {
       name: 'Cloud Computing',
       icon: Cloud,
-      align: 'flex-row-reverse',
+      align: 'lg:flex-row-reverse',
       emoji: '☁️',
       services: [
         'Build and deploying web applications on cloud',
@@ -33,7 +33,7 @@ const Stack = () => {
     {
       name: 'Blockchain',
       icon: Blockchain,
-      align: 'flex-row',
+      align: 'lg:flex-row',
       emoji: '🔗',
       services: [
         'Building decentralized applications (dApps)',
@@ -52,7 +52,7 @@ const Stack = () => {
       {techStack.map((tech, index) => (
         <div
           key={index}
-          className={`w-full flex flex-col lg:${tech.align} items-center justify-between`}
+          className={`w-full flex flex-col ${tech.align} items-center justify-between`}
         >
           <div className="w-full flex items-center justify-center">
             <DisplayLottie animationData={tech.icon} />

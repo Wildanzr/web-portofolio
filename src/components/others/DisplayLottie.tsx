@@ -9,7 +9,7 @@ export default function DisplayLottie (porps: DisplayLottieProps) {
     <Lottie
         animationData={animationData}
         loop={true}
-        style={{ width: '400px', height: '400px' }}
+        style={{ width: '350px', height: '350px' }}
     />
   )
 }

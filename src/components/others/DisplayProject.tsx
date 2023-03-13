@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Image } from 'antd'
 
 interface DisplayProjectProps {
-    images: string[]
+  images: string[];
 }
 
 export default function DisplayProject (props: DisplayProjectProps) {
@@ -33,7 +33,7 @@ export default function DisplayProject (props: DisplayProjectProps) {
           }}
         >
           {images.map((image, index) => (
-            <Image key={index} src={image} alt='project' />
+            <Image key={index} src={image} alt="project" />
           ))}
         </Image.PreviewGroup>
       </div>

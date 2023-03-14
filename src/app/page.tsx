@@ -1,6 +1,6 @@
 'use client'
 
-import { About, Contact, Hero, Projects, Stack } from '@/components'
+import { About, Contact, Hero, Projects, Stack, Footer } from '@/components'
 import { Navbar } from '@/components/navbar'
 
 import { GoogleAnalytics } from 'nextjs-google-analytics'
@@ -15,6 +15,7 @@ export default function Home () {
       <Stack />
       <Projects />
       <Contact />
+      <Footer />
     </main>
   )
 }

@@ -20,7 +20,7 @@ const Hero = () => {
       <div className="w-full h-full flex flex-col items-center justify-center lg:items-start lg:justify-start">
         <div className="w-full flex flex-row items-center justify-center lg:items-start lg:justify-start space-x-3">
           <p className="flex text-3xl sm:text-4xl md:text-5xl font-medium tracking-wide whitespace-nowrap">Hello there</p>
-          <Image src="/wave.png" width={35} height={35} alt="Hello" />
+          <Image src="/images/wave.webp" width={35} height={35} alt="Hello" />
         </div>
 
         <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-start">
@@ -37,8 +37,8 @@ const Hero = () => {
 
       {/* Image section */}
       <div className="w-full flex flex-col items-center justify-center">
-        <Image src='/me.png' className={`${isDark ? 'flex' : 'hidden'}`} width={350} height={350} alt='Wildan' />
-        <Image src='/me2.png' className={`${isDark ? 'hidden' : 'flex'}`} width={350} height={350} alt='Wildan' />
+        <Image src='/images/me.webp' className={`${isDark ? 'flex' : 'hidden'}`} width={350} height={350} alt='Wildan' />
+        <Image src='/images/me2.webp' className={`${isDark ? 'hidden' : 'flex'}`} width={350} height={350} alt='Wildan' />
       </div>
     </div>
   )

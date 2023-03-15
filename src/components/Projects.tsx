@@ -11,58 +11,58 @@ const Projects = () => {
     {
       name: 'LetsCode - Solve Problem Collaboratively',
       images: [
-        '/images/lc1.png',
-        '/images/lc2.png',
-        '/images/lc3.png',
-        '/images/lc4.png',
-        '/images/lc5.png',
-        '/images/lc6.png',
-        '/images/lc7.png'
+        '/images/lc1.webp',
+        '/images/lc2.webp',
+        '/images/lc3.webp',
+        '/images/lc4.webp',
+        '/images/lc5.webp',
+        '/images/lc6.webp',
+        '/images/lc7.webp'
       ]
     },
     {
       name: 'BCDev Landing Page',
       images: [
-        '/images/bc1.png',
-        '/images/bc2.png',
-        '/images/bc3.png',
-        '/images/bc4.png'
+        '/images/bc1.webp',
+        '/images/bc2.webp',
+        '/images/bc3.webp',
+        '/images/bc4.webp'
       ]
     },
     {
       name: 'Online Learning',
       images: [
-        '/images/ol1.png',
-        '/images/ol2.png',
-        '/images/ol3.png',
-        '/images/ol4.png',
-        '/images/ol5.png',
-        '/images/ol6.png',
-        '/images/ol7.png',
-        '/images/ol8.png',
-        '/images/ol9.png'
+        '/images/ol1.webp',
+        '/images/ol2.webp',
+        '/images/ol3.webp',
+        '/images/ol4.webp',
+        '/images/ol5.webp',
+        '/images/ol6.webp',
+        '/images/ol7.webp',
+        '/images/ol8.webp',
+        '/images/ol9.webp'
       ]
     },
     {
       name: 'Sakinah Residence Marketing Website',
       images: [
-        '/images/sk1.png',
-        '/images/sk2.png',
-        '/images/sk3.png',
-        '/images/sk4.png',
-        '/images/sk5.png',
-        '/images/sk6.png'
+        '/images/sk1.webp',
+        '/images/sk2.webp',
+        '/images/sk3.webp',
+        '/images/sk4.webp',
+        '/images/sk5.webp',
+        '/images/sk6.webp'
       ]
     },
     {
       name: 'Event Plus Landing Page',
       images: [
-        '/images/ev1.png',
-        '/images/ev2.png',
-        '/images/ev3.png',
-        '/images/ev4.png',
-        '/images/ev5.png',
-        '/images/ev6.png'
+        '/images/ev1.webp',
+        '/images/ev2.webp',
+        '/images/ev3.webp',
+        '/images/ev4.webp',
+        '/images/ev5.webp',
+        '/images/ev6.webp'
       ]
     }
   ]

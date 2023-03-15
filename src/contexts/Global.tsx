@@ -24,7 +24,7 @@ const GlobalContext = createContext<IGlobalContext>({
 })
 
 export const GlobalProvider = ({ children }: IGlobalProvider) => {
-  const [isDark, setIsDark] = useState<boolean | null>(false)
+  const [isDark, setIsDark] = useState<boolean | null>(true)
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | null>(false)
 
   const globalStates = {

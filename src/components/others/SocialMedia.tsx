@@ -25,7 +25,7 @@ export default function SocialMedia () {
           <a href="https://github.com/Wildanzr" target="_blank" rel="noreferrer">
             <FaGithub className="text-4xl fill-alternate hover:fill-pink-400 duration-300 dark:fill-snow dark:hover:fill-blue-400" />
           </a>
-          <a href="https://www.instagram.com/wildanz.reyz24/" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/dannzrrr/" target="_blank" rel="noreferrer">
             <FaInstagram className="text-4xl fill-alternate hover:fill-pink-400 duration-300 dark:fill-snow dark:hover:fill-blue-400" />
           </a>
           <a href="https://twitter.com/Wildanzr24" target="_blank" rel="noreferrer">

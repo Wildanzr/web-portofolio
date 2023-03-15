@@ -99,7 +99,7 @@ export default function Email () {
 
             <Item className="w-full">
               <button
-                className="w-full flex flex-row btn border-0 space-x-3 items-center justify-center px-3 py-2 text-snow rounded-md bg-pink-400 dark:bg-blue-400"
+                className="w-full flex flex-row btn border-0 space-x-3 items-center justify-center px-3 py-2 text-snow rounded-md bg-main dark:bg-blue-400"
                 type="submit"
               >
                 <span className="text-lg font-medium">Send</span>

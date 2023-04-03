@@ -6,18 +6,18 @@ const About = () => {
       id: 1,
       ex: [
         {
-          year: '2020',
-          title: 'Basic Programming Assistant',
-          company: 'FILKOM',
-          at: 'University of Brawijaya',
-          desc: 'Responsible for helping 34 new students in learning basic programming using Java. Provide material and problem-based learning during learning to provide a good learning experience. Serving new students who consult about their problems in the program code.'
+          year: '2022',
+          title: 'Freelance Fullstack Developer',
+          company: 'Anywhere',
+          at: 'Anytime',
+          desc: 'Experienced MERN stack developer with expertise in developing scalable web applications. Proficient in utilizing React.js, Node.js, and MongoDB to build robust and efficient full-stack solutions. Committed to delivering high-quality code and providing excellent user experiences.'
         },
         {
-          year: '2021',
-          title: 'Object Oriented Assistant',
-          company: 'FILKOM',
-          at: 'University of Brawijaya',
-          desc: 'Responsible for teaching object-oriented programming to 87 new students divided into two classes. My approach was to provide them with challenges on the Hackerrank web platform, while creating a supportive environment where they could learn and collaborate.'
+          year: '2022',
+          title: 'DTS Oracle Database Programming',
+          company: 'KOMINFO',
+          at: 'Malang, Indonesia',
+          desc: 'For the second opportunity to receive a scholarship from the Ministry of Communication and Information of the Republic of Indonesia to study Oracle Database Programming and obtain Oracle certification. Gain a deeper understanding of database engineering and administration by tackling real-world problems commonly faced by large enterprises.'
         }
       ]
     },
@@ -25,18 +25,18 @@ const About = () => {
       id: 2,
       ex: [
         {
-          year: '2021',
-          title: 'DTS Java Programming',
-          company: 'KOMINFO',
-          at: 'Malang, Indonesia',
-          desc: 'Got an scholarship from Ministry of Communication and Information Technology of the Republic of Indonesia to learn Java Programming and completed Oracle certification. Through this program, I gained extensive knowledge and hands-on experience, and I am now better equipped to tackle complex programming challenges.'
-        },
-        {
           year: '2022',
           title: 'Fullstack Developer Intern',
           company: 'BNI',
           at: 'Jakarta, Indonesia',
           desc: 'Responsible for developing video conferencing applications in serving customers with tellers in Bank Negara Indonesia. Implement a system for dividing the number of customers queuing with the number of available tellers. Customizing an open source applications in accordance with system requirements.'
+        },
+        {
+          year: '2021',
+          title: 'DTS Java Programming',
+          company: 'KOMINFO',
+          at: 'Malang, Indonesia',
+          desc: 'Got an scholarship from Ministry of Communication and Information Technology of the Republic of Indonesia to learn Java Programming and completed Oracle certification. Through this program, I gained extensive knowledge and hands-on experience, and I am now better equipped to tackle complex programming challenges.'
         }
       ]
     },
@@ -44,18 +44,18 @@ const About = () => {
       id: 3,
       ex: [
         {
-          year: '2022',
-          title: 'DTS Oracle Database Programming',
-          company: 'KOMINFO',
-          at: 'Malang, Indonesia',
-          desc: 'For the second opportunity to receive a scholarship from the Ministry of Communication and Information of the Republic of Indonesia to study Oracle Database Programming and obtain Oracle certification. Gain a deeper understanding of database engineering and administration by tackling real-world problems commonly faced by large enterprises.'
+          year: '2021',
+          title: 'Object Oriented Assistant',
+          company: 'FILKOM',
+          at: 'University of Brawijaya',
+          desc: 'Responsible for teaching object-oriented programming to 87 new students divided into two classes. My approach was to provide them with challenges on the Hackerrank web platform, while creating a supportive environment where they could learn and collaborate.'
         },
         {
-          year: '2022',
-          title: 'Freelance Fullstack Developer',
-          company: 'Anywhere',
-          at: 'Anytime',
-          desc: 'Experienced MERN stack developer with expertise in developing scalable web applications. Proficient in utilizing React.js, Node.js, and MongoDB to build robust and efficient full-stack solutions. Committed to delivering high-quality code and providing excellent user experiences.'
+          year: '2020',
+          title: 'Basic Programming Assistant',
+          company: 'FILKOM',
+          at: 'University of Brawijaya',
+          desc: 'Responsible for helping 34 new students in learning basic programming using Java. Provide material and problem-based learning during learning to provide a good learning experience. Serving new students who consult about their problems in the program code.'
         }
       ]
     }

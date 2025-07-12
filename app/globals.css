@@ -127,3 +127,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .gradient-linear-start {
+    @apply bg-gradient-to-b from-[#FDFDFD] to-[#FAF5FF];
+  }
+
+  .gradient-linear-reverse {
+    @apply bg-gradient-to-b from-[#FAF5FF] to-[#FDFDFD];
+  }
+}

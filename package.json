@@ -1,38 +1,27 @@
 {
-  "name": "portofoliov2",
+  "name": "web-portofolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.10.0",
-    "@types/node": "18.14.1",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "antd": "^5.3.0",
-    "daisyui": "^2.51.3",
-    "eslint": "8.35.0",
-    "eslint-config-next": "13.2.1",
-    "framer-motion": "^10.0.1",
-    "lottie-react": "^2.4.0",
-    "next": "13.2.1",
-    "nextjs-google-analytics": "^2.3.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-easy-emoji": "^1.8.1",
-    "react-icons": "^4.7.1",
-    "swiper": "^9.1.0",
-    "typescript": "4.9.5",
-    "window-size": "^1.1.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.3.5"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "eslint-config-standard": "^17.0.0",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.5",
+    "@eslint/eslintrc": "^3"
   }
 }

@@ -12,24 +12,87 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { CaretRightIcon, ListIcon } from "@phosphor-icons/react/ssr";
-import { NAVIGATION_MENU } from "@/lib/constants";
+import { LOGO_NAME, NAVIGATION_MENU } from "@/lib/constants";
 
 const MobileNavbar = () => {
   return (
     <div className="container flex items-center justify-between w-full h-full px-5 mx-auto lg:hidden">
       <Link href="/" className="text-lg font-bold text-black-pearl">
-        Logo
+        {LOGO_NAME.map((item, letterIndex) => (
+          <motion.span
+            key={letterIndex}
+            className="text-3xl font-bold cursor-pointer select-none"
+            initial={{
+              opacity: 1,
+            }}
+            whileHover={{
+              opacity: 1,
+              background: "linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899)",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+            transition={{
+              duration: 0.2,
+              delay: letterIndex * 0.02,
+              ease: "easeInOut",
+              staggerChildren: 0.01,
+            }}
+            style={{
+              background: "linear-gradient(45deg, #6b7280, #6b7280)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            {item}
+          </motion.span>
+        ))}
       </Link>
 
       <Sheet>
         <SheetTrigger>
           <ListIcon className="size-8 text-black-pearl" />
         </SheetTrigger>
-        <SheetContent className="w-full backdrop-blur-xs bg-transparent">
+        <SheetContent
+          side="top"
+          className="w-full h-screen backdrop-blur-xs bg-transparent"
+        >
           <SheetHeader className="flex w-full h-20">
             <SheetTitle className="pt-2.5">
               <Link href="/" className="text-lg font-bold text-black-pearl">
-                Logo
+                {LOGO_NAME.map((item, letterIndex) => (
+                  <motion.span
+                    key={letterIndex}
+                    className="text-3xl font-bold cursor-pointer select-none"
+                    initial={{
+                      opacity: 1,
+                      background: "linear-gradient(45deg, #6b7280, #6b7280)",
+                      backgroundClip: "text",
+                      color: "transparent",
+                    }}
+                    whileHover={{
+                      opacity: 1,
+                      background:
+                        "linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899)",
+                      backgroundClip: "text",
+                      color: "transparent",
+                    }}
+                    transition={{
+                      duration: 0.2,
+                      delay: letterIndex * 0.02,
+                      ease: "easeInOut",
+                      staggerChildren: 0.01,
+                    }}
+                    style={{
+                      background: "linear-gradient(45deg, #6b7280, #6b7280)",
+                      backgroundClip: "text",
+                      WebkitBackgroundClip: "text",
+                      color: "transparent",
+                    }}
+                  >
+                    {item}
+                  </motion.span>
+                ))}
               </Link>
             </SheetTitle>
           </SheetHeader>
@@ -65,7 +128,7 @@ const MobileNavbar = () => {
                         />
                       </motion.div>
                       <motion.span
-                        className="text-2xl font-semibold text-black-pearl"
+                        className="text-2xl font-semibold text-white-sand"
                         whileHover={{
                           skewX: -10,
                           transition: { duration: 0.3 },
@@ -100,14 +163,47 @@ const MobileNavbar = () => {
 const DesktopNavbar = () => {
   return (
     <div className="container items-center justify-between hidden w-full h-full mx-auto lg:flex">
-      Desktop Navbar
+      <div className="flex">
+        {LOGO_NAME.map((item, letterIndex) => (
+          <motion.span
+            key={letterIndex}
+            className="text-4xl font-bold cursor-pointer select-none"
+            initial={{
+              opacity: 0.6,
+              background: "linear-gradient(45deg, #6b7280, #6b7280)",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+            whileHover={{
+              opacity: 1,
+              background: "linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899)",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+            transition={{
+              duration: 0.2,
+              delay: letterIndex * 0.02,
+              ease: "easeInOut",
+              staggerChildren: 0.01,
+            }}
+            style={{
+              background: "linear-gradient(45deg, #6b7280, #6b7280)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            {item}
+          </motion.span>
+        ))}
+      </div>
     </div>
   );
 };
 
 const Navbar = () => {
   return (
-    <div className="sticky top-0 w-full h-20 bg-red-500">
+    <div className="sticky top-0 w-full h-20 bg-white/10 backdrop-blur-lg border-b border-white/20 shadow-lg z-50 before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/5 before:to-transparent before:pointer-events-none">
       <MobileNavbar />
       <DesktopNavbar />
     </div>

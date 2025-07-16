@@ -40,3 +40,5 @@ export const NAVIGATION_MENU: NavigationMenuItem[] = [
     Icon: AddressBookIcon,
   },
 ];
+
+export const LOGO_NAME = "Wildannn".split("");

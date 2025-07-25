@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { CaretRightIcon, ListIcon } from "@phosphor-icons/react/ssr";
 import { LOGO_NAME, NAVIGATION_MENU } from "@/lib/constants";
+import { Button } from "@/components/ui/button";
 
 const MobileNavbar = () => {
   return (
@@ -197,6 +198,12 @@ const DesktopNavbar = () => {
           </motion.span>
         ))}
       </div>
+
+      <Button>
+        <Link href="#contact" className="flex items-center space-x-2">
+          <span className="text-lg font-semibold text-white-sand">Contact</span>
+        </Link>
+      </Button>
     </div>
   );
 };

@@ -1,53 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { CaretRightIcon, ListIcon } from "@phosphor-icons/react/ssr";
-import { LOGO_NAME, NAVIGATION_MENU } from "@/lib/constants";
+import { CaretRightIcon, ListIcon, XIcon } from "@phosphor-icons/react/ssr";
+import { NAVIGATION_MENU } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
 const MobileNavbar = () => {
   return (
     <div className="container flex items-center justify-between w-full h-full px-5 mx-auto lg:hidden">
-      <Link href="/" className="text-lg font-bold text-black-pearl">
-        {LOGO_NAME.map((item, letterIndex) => (
-          <motion.span
-            key={letterIndex}
-            className="text-3xl font-bold cursor-pointer select-none"
-            initial={{
-              opacity: 1,
-            }}
-            whileHover={{
-              opacity: 1,
-              background: "linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899)",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
-            transition={{
-              duration: 0.2,
-              delay: letterIndex * 0.02,
-              ease: "easeInOut",
-              staggerChildren: 0.01,
-            }}
-            style={{
-              background: "linear-gradient(45deg, #6b7280, #6b7280)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-            }}
-          >
-            {item}
-          </motion.span>
-        ))}
+      <Link href="/" className="text-3xl font-bold text-black-pearl">
+        wildanzrrr ✨
       </Link>
 
       <Sheet>
@@ -56,49 +29,21 @@ const MobileNavbar = () => {
         </SheetTrigger>
         <SheetContent
           side="top"
-          className="w-full h-screen backdrop-blur-xs bg-transparent"
+          className="w-full h-screen backdrop-blur-md bg-transparent"
         >
-          <SheetHeader className="flex w-full h-20">
+          <SheetHeader className="flex flex-row items-center justify-between w-full h-20 container mx-auto">
             <SheetTitle className="pt-2.5">
-              <Link href="/" className="text-lg font-bold text-black-pearl">
-                {LOGO_NAME.map((item, letterIndex) => (
-                  <motion.span
-                    key={letterIndex}
-                    className="text-3xl font-bold cursor-pointer select-none"
-                    initial={{
-                      opacity: 1,
-                      background: "linear-gradient(45deg, #6b7280, #6b7280)",
-                      backgroundClip: "text",
-                      color: "transparent",
-                    }}
-                    whileHover={{
-                      opacity: 1,
-                      background:
-                        "linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899)",
-                      backgroundClip: "text",
-                      color: "transparent",
-                    }}
-                    transition={{
-                      duration: 0.2,
-                      delay: letterIndex * 0.02,
-                      ease: "easeInOut",
-                      staggerChildren: 0.01,
-                    }}
-                    style={{
-                      background: "linear-gradient(45deg, #6b7280, #6b7280)",
-                      backgroundClip: "text",
-                      WebkitBackgroundClip: "text",
-                      color: "transparent",
-                    }}
-                  >
-                    {item}
-                  </motion.span>
-                ))}
+              <Link href="/" className="text-3xl font-bold text-white-sand">
+                wildanzrrr ✨
               </Link>
             </SheetTitle>
+            <SheetClose className="flex items-start justify-start">
+              <XIcon className="size-8 text-white-sand" />
+              <span className="sr-only">Close</span>
+            </SheetClose>
           </SheetHeader>
 
-          <div className="flex flex-col w-full h-full space-y-5">
+          <div className="flex flex-col w-full h-full space-y-5 container mx-auto">
             <ul className="flex flex-col items-start justify-start w-full h-full space-y-5 text-lg font-semibold text-black-pearl">
               {NAVIGATION_MENU.map((item, idx) => (
                 <motion.li
@@ -116,18 +61,6 @@ const MobileNavbar = () => {
                     className="flex w-full items-center justify-between space-x-2"
                   >
                     <div className="flex flex-row items-center space-x-3">
-                      <motion.div
-                        whileHover={{
-                          rotateY: 180,
-                          scale: 1.2,
-                          transition: { duration: 0.4 },
-                        }}
-                      >
-                        <item.Icon
-                          className="size-5 text-white-sand"
-                          weight="duotone"
-                        />
-                      </motion.div>
                       <motion.span
                         className="text-2xl font-semibold text-white-sand"
                         whileHover={{
@@ -164,40 +97,34 @@ const MobileNavbar = () => {
 const DesktopNavbar = () => {
   return (
     <div className="container items-center justify-between hidden w-full h-full mx-auto lg:flex">
-      <div className="flex">
-        {LOGO_NAME.map((item, letterIndex) => (
-          <motion.span
-            key={letterIndex}
-            className="text-4xl font-bold cursor-pointer select-none"
-            initial={{
-              opacity: 0.6,
-              background: "linear-gradient(45deg, #6b7280, #6b7280)",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
+      <Link
+        href="/"
+        className="text-3xl font-bold text-black-pearl whitespace-nowrap"
+      >
+        wildanzrrr ✨
+      </Link>
+
+      <ul className="flex items-center justify-center w-full h-full space-x-10 text-lg font-semibold text-black-pearl">
+        {NAVIGATION_MENU.map((item, idx) => (
+          <motion.li
+            key={idx}
+            className="flex items-center space-x-2 transition-colors duration-200 rounded-lg hover:bg-white/10"
             whileHover={{
-              opacity: 1,
-              background: "linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899)",
-              backgroundClip: "text",
-              color: "transparent",
+              skewX: -5,
+              x: 15,
+              transition: { type: "spring", stiffness: 300, damping: 20 },
             }}
-            transition={{
-              duration: 0.2,
-              delay: letterIndex * 0.02,
-              ease: "easeInOut",
-              staggerChildren: 0.01,
-            }}
-            style={{
-              background: "linear-gradient(45deg, #6b7280, #6b7280)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-            }}
+            whileTap={{ skewX: 0, x: 0 }}
           >
-            {item}
-          </motion.span>
+            <Link href={item.url} className="flex items-center space-x-2">
+              {/* <item.Icon className="size-6 text-black-pearl" weight="duotone" /> */}
+              <span className="text-lg font-light text-black-pearl hover:font-semibold transition-all duration-300 ease-out">
+                {item.title}
+              </span>
+            </Link>
+          </motion.li>
         ))}
-      </div>
+      </ul>
 
       <Button>
         <Link href="#contact" className="flex items-center space-x-2">
@@ -209,11 +136,51 @@ const DesktopNavbar = () => {
 };
 
 const Navbar = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+
+      // Don't hide navbar when at the top of the page
+      if (currentScrollY < 10) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
+
   return (
-    <div className="sticky top-0 w-full h-20 bg-white/10 backdrop-blur-lg border-b border-white/20 shadow-lg z-50 before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/5 before:to-transparent before:pointer-events-none">
+    <motion.div
+      className="fixed top-0 w-full h-20 bg-white/10 backdrop-blur-lg border-b border-white/20 shadow-lg z-50 before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/5 before:to-transparent before:pointer-events-none"
+      initial={{ y: 0 }}
+      animate={{
+        y: isVisible ? 0 : -100,
+        opacity: isVisible ? 1 : 0,
+      }}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
+    >
       <MobileNavbar />
       <DesktopNavbar />
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,7 +3,7 @@ import Contact from "./_components/contact";
 import Footer from "./_components/footer";
 import Jumbotron from "./_components/jumbotron";
 import Navbar from "./_components/navbar";
-import Portfoliio from "./_components/portfolio";
+import Portfolio from "./_components/portfolio";
 import Services from "./_components/services";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
       <Jumbotron />
       <About />
-      <Portfoliio />
+      <Portfolio />
       <Services />
       <Contact />
       <Footer />

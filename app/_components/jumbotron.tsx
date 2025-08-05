@@ -2,7 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import RotatingText from "@/components/ui/rotating-text";
-import { CalendarDotsIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  CalendarDotsIcon,
+  MouseScrollIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import React from "react";
 import Image from "next/image";
 
@@ -10,7 +13,7 @@ const Jumbotron = () => {
   return (
     <section className="w-full h-screen gradient-linear-start pt-20">
       <div className="container mx-auto p-5 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:items-center lg:justify-center">
-        <div className="flex flex-col space-y-10 items-center justify-center">
+        <div className="flex flex-col w-full space-y-10 items-center justify-center">
           <div className="flex flex-col items-start max-w-md md:max-w-lg">
             <RotatingText
               texts={["gm serr..", "gn serr.."]}
@@ -37,7 +40,7 @@ const Jumbotron = () => {
             </p>
           </div>
 
-          <div className="flex flex-row items-center justify-start w-full max-w-md gap-5">
+          <div className="flex flex-row items-center justify-start w-full max-w-md md:max-w-lg gap-5">
             <Button className="w-fit cursor-pointer">
               Contact Me
               <CalendarDotsIcon />
@@ -54,8 +57,8 @@ const Jumbotron = () => {
         <div className="relative w-full h-fit flex items-center justify-center">
           <div className="absolute z-0 -top-10 left-10 md:left-30 w-40 h-40 bg-radial from-sweet-corn rounded-full blur-2xl" />
           <div className="absolute z-0 -bottom-10 right-10 md:right-30 w-40 h-40 bg-radial from-french-pass rounded-full blur-2xl" />
-          <div className="flex w-2/3 md:w-3/6 h-96 py-2 items-center justify-center rounded-xl gradient-linear-start shadow-xl z-10">
-            <div className="relative w-10/12 h-full bg-green-500 rounded-lg">
+          <div className="flex w-5/6 md:w-5/6 lg:w-4/6 h-96 py-2 items-center justify-center rounded-xl gradient-linear-start shadow-xl z-10">
+            <div className="relative w-10/12 h-full rounded-lg">
               <Image
                 src="/pfp.png"
                 alt="Profile Picture"
@@ -66,6 +69,13 @@ const Jumbotron = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="flex w-full h-fit items-center justify-center absolute bottom-20">
+        <MouseScrollIcon
+          weight="light"
+          className="size-8 text-black-pearl animate-bounce"
+        />
       </div>
     </section>
   );

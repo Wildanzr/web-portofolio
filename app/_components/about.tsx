@@ -1,12 +1,47 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useQueryState } from "nuqs";
 import { TAB_MENUS } from "@/lib/constants";
 import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import AboutBackground from "./about/background";
+import AboutExperience from "./about/experience";
+import AboutEducation from "./about/education";
+import AboutSkills from "./about/skills";
+
+const isValidTabTitle = (title: string) => {
+  const validTitles = TAB_MENUS.map((menu) => menu.title.toLowerCase());
+  return validTitles.includes(title.toLowerCase());
+};
 
 const About = () => {
+  const [activeTab, setActiveTab] = useQueryState("tabs", {
+    defaultValue: "background",
+    parse: (value) => (isValidTabTitle(value) ? value : null),
+  });
+
+  const [previousTabIndex, setPreviousTabIndex] = useState(0);
+  const [currentTabIndex, setCurrentTabIndex] = useState(0);
+
+  const getCurrentTabIndex = (tabName: string) => {
+    return TAB_MENUS.findIndex((menu) => menu.title.toLowerCase() === tabName);
+  };
+
+  const handleTabChange = (newTab: string) => {
+    const newIndex = getCurrentTabIndex(newTab);
+    setPreviousTabIndex(currentTabIndex);
+    setCurrentTabIndex(newIndex);
+    setActiveTab(newTab);
+  };
+
+  useEffect(() => {
+    const index = getCurrentTabIndex(activeTab || "background");
+    setCurrentTabIndex(index);
+    setPreviousTabIndex(index);
+  }, [activeTab]);
+
   return (
     <section
       id="about"
@@ -19,88 +54,70 @@ const About = () => {
             Software Engineer & Architect
           </h3>
 
-          <Tabs defaultValue="background" className="w-full h-full">
-            <TabsList className="">
+          <Tabs defaultValue={activeTab} className="w-full h-full">
+            <TabsList className="relative bg-transparent border-0 p-0 w-full grid grid-cols-4">
               {TAB_MENUS.map((item, idx) => (
                 <TabsTrigger
                   value={item.title.toLowerCase()}
                   key={idx}
-                  className="data-[state=active]:bg-transparent data-[state=active]:shadow-none group"
+                  onClick={() => handleTabChange(item.title.toLowerCase())}
+                  className="data-[state=active]:bg-transparent data-[state=active]:shadow-none group cursor-pointer relative p-0 flex-1"
                 >
-                  <div className="flex flex-row space-x-2.5 pb-6 border-b-4 border-transparent group-data-[state=active]:border-tundora">
+                  <div className="flex flex-row space-x-2.5 pb-6 px-2 justify-center">
                     <item.Icon className="text-black-pearl size-5" />
-                    <span className="text-sm font-light group-data-[state=active]:font-medium text-black-pearl">
+                    <span className="text-sm font-light group-data-[state=active]:font-medium text-black-pearl group-hover:font-medium duration-300 transition-all ease-out">
                       {item.title}
                     </span>
                   </div>
                 </TabsTrigger>
               ))}
+
+              {/* Sliding border */}
+              <motion.div
+                className="absolute bottom-0 h-1"
+                initial={false}
+                animate={{
+                  x: `${currentTabIndex * 100}%`,
+                }}
+                transition={{
+                  duration: 0.3,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
+                style={{
+                  width: `${100 / TAB_MENUS.length}%`,
+                }}
+              >
+                {/* Inner animated bar for rotation effect */}
+                <motion.div
+                  className="w-full h-full bg-tundora"
+                  initial={false}
+                  animate={{
+                    rotateY: [previousTabIndex > currentTabIndex ? -20 : 20, 0],
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    times: [0, 1],
+                  }}
+                  style={{
+                    transformOrigin:
+                      previousTabIndex > currentTabIndex ? "right" : "left",
+                  }}
+                />
+              </motion.div>
             </TabsList>
-            <Separator className="bg-tundora/50 h-[1px] ml-4 my-2 -mt-1" />
+            <Separator className="bg-tundora/50 h-[1px] my-2 -mt-2.5" />
             <TabsContent value="background" className="p-5">
-              <p className="text-base font-sans text-black-pearl">
-                I start this journey in 2019 at{" "}
-                <Link
-                  href="https://www.instagram.com/univ.brawijaya/"
-                  target="_blank"
-                  className="text-brawijaya font-semibold"
-                >
-                  Brawijaya University
-                </Link>
-                , where I studied Computer Science. First semester? I can&apos;t
-                do any code as fuck, LOL. Then quarter life crisis hit me, and I
-                realized I needed to choose my path. Long story short, I
-                practiced more and more code on my own.
-              </p>
-              <br />
-              <p className="text-base font-sans text-black-pearl">
-                Fast forward to 2021, I challenge myself to become an instructor
-                to facilitate learning for others. Then, I landed my first
-                internship at{" "}
-                <Link
-                  href="https://www.bni.co.id/"
-                  target="_blank"
-                  className="text-bni font-semibold"
-                >
-                  Bank Negara Indonesia
-                </Link>{" "}
-                as a fullstack developer. This is where I gained valuable
-                experience working on real-world projects and collaborate with
-                professionals.
-              </p>
-              <br />
-              <p className="text-base font-sans text-black-pearl">
-                After that, I opened my own freelance project while finishing my
-                studies. At least there was five projects I worked on during
-                that time. This experience taught me how to manage my time
-                effectively and deliver high-quality work to clients.
-              </p>
-              <br />
-              <p className="text-base font-sans text-black-pearl">
-                Now, I work as a fullstack web3 developer at{" "}
-                <Link
-                  href="https://tokenminds.co/"
-                  target="_blank"
-                  className="text-tokenminds font-semibold"
-                >
-                  TokenMinds
-                </Link>{" "}
-                , where I focused on building dApp applications. Mostly I do
-                work on smart contract integration and some backend stuff. Web3
-                gave me a lot of opportunities, winning some{" "}
-                <Link
-                  href="https://devfolio.co/@wildanzrrr"
-                  target="_blank"
-                  className="text-brawijaya font-semibold"
-                >
-                  hackathons
-                </Link>
-                , attending global conferences, and building a network with
-                other founders and builders.
-              </p>
+              <AboutBackground />
             </TabsContent>
-            <TabsContent value="experience">
-              Change your experience here.
+            <TabsContent value="experience" className="p-5">
+              <AboutExperience />
+            </TabsContent>
+            <TabsContent value="education" className="p-5">
+              <AboutEducation />
+            </TabsContent>
+            <TabsContent value="skills" className="p-5">
+              <AboutSkills />
             </TabsContent>
           </Tabs>
         </div>

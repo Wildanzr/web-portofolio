@@ -1,9 +1,21 @@
+import { CodeIcon, Icon } from "@phosphor-icons/react";
+import {
+  BriefcaseIcon,
+  IdentificationBadgeIcon,
+  StudentIcon,
+} from "@phosphor-icons/react/dist/ssr";
+
 interface NavigationMenuItem {
   title: string;
   url: string;
 }
 
-export const NAVIGATION_MENU: NavigationMenuItem[] = [
+interface TabMenuItem {
+  Icon: Icon;
+  title: string;
+}
+
+export const NAVIGATION_MENUS: NavigationMenuItem[] = [
   {
     title: "Home",
     url: "/",
@@ -27,3 +39,22 @@ export const NAVIGATION_MENU: NavigationMenuItem[] = [
 ];
 
 export const LOGO_NAME = "Wildannn".split("");
+
+export const TAB_MENUS: TabMenuItem[] = [
+  {
+    Icon: IdentificationBadgeIcon,
+    title: "Background",
+  },
+  {
+    Icon: BriefcaseIcon,
+    title: "Experience",
+  },
+  {
+    Icon: StudentIcon,
+    title: "Education",
+  },
+  {
+    Icon: CodeIcon,
+    title: "Skills",
+  },
+];

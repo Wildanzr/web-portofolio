@@ -13,7 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { CaretRightIcon, ListIcon, XIcon } from "@phosphor-icons/react/ssr";
-import { NAVIGATION_MENU } from "@/lib/constants";
+import { NAVIGATION_MENUS } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
 const MobileNavbar = () => {
@@ -45,7 +45,7 @@ const MobileNavbar = () => {
 
           <div className="flex flex-col w-full h-full space-y-5 container mx-auto">
             <ul className="flex flex-col items-start justify-start w-full h-full space-y-5 text-lg font-semibold text-black-pearl">
-              {NAVIGATION_MENU.map((item, idx) => (
+              {NAVIGATION_MENUS.map((item, idx) => (
                 <motion.li
                   key={idx}
                   className="flex w-full h-16 px-5 transition-colors duration-200 rounded-lg"
@@ -105,7 +105,7 @@ const DesktopNavbar = () => {
       </Link>
 
       <ul className="flex items-center justify-center w-full h-full space-x-10 text-lg font-semibold text-black-pearl">
-        {NAVIGATION_MENU.map((item, idx) => (
+        {NAVIGATION_MENUS.map((item, idx) => (
           <motion.li
             key={idx}
             className="flex items-center space-x-2 transition-colors duration-200 rounded-lg hover:bg-white/10"

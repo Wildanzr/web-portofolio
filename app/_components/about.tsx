@@ -51,7 +51,7 @@ const About = () => {
         <div className="order-last lg:order-first flex w-full h-40 bg-red-500"></div>
         <div className="w-full h-full flex flex-col space-y-5">
           <h3 className="text-4xl font-bold text-black-pearl lg:text-5xl">
-            Software Engineer & Architect
+            Software Engineer & System Design
           </h3>
 
           <Tabs defaultValue={activeTab} className="w-full h-full">

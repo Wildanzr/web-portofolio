@@ -1,7 +1,53 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  CodeIcon,
+  PaintBrushIcon,
+  ComputerTowerIcon,
+  FigmaLogoIcon,
+  DatabaseIcon,
+  RobotIcon,
+  GitBranchIcon,
+} from "@phosphor-icons/react";
+
+const skillCategories = [
+  {
+    title: "Smart Contract Development",
+    icon: CodeIcon,
+    skills: ["Solidity", "Foundry", "Rust", "Anchor"],
+  },
+  {
+    title: "Front-end Development",
+    icon: PaintBrushIcon,
+    skills: ["HTML/CSS", "Tailwindcss", "Next.js", "Expo"],
+  },
+  {
+    title: "Back-end Development",
+    icon: ComputerTowerIcon,
+    skills: ["NestJS", "Express.js"],
+  },
+  {
+    title: "Design and Wireframe",
+    icon: FigmaLogoIcon,
+    skills: ["Figma", "Whimsical"],
+  },
+  {
+    title: "Database",
+    icon: DatabaseIcon,
+    skills: ["PostgreSQL", "MongoDB", "PrismaORM"],
+  },
+  {
+    title: "AI Stuff",
+    icon: RobotIcon,
+    skills: ["Anthropic", "OpenAI"],
+  },
+  {
+    title: "Other",
+    icon: GitBranchIcon,
+    skills: ["Git", "Docker", "GCP", "AWS"],
+  },
+];
 
 const AboutSkills = () => {
   return (
@@ -21,71 +67,58 @@ const AboutSkills = () => {
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       style={{ perspective: 1000 }}
+      className="space-y-8"
     >
-      <p className="text-base font-sans text-black-pearl">
-        I start this journey in 2019 at{" "}
-        <Link
-          href="https://www.instagram.com/univ.brawijaya/"
-          target="_blank"
-          className="text-brawijaya font-semibold"
+      {skillCategories.map((category, index) => (
+        <motion.div
+          key={index}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.4,
+            delay: index * 0.1,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
+          className="group"
         >
-          Brawijaya University
-        </Link>
-        , where I studied Computer Science. First semester? I can&apos;t do any
-        code as fuck, LOL. Then quarter life crisis hit me, and I realized I
-        needed to choose my path. Long story short, I practiced more and more
-        code on my own.
-      </p>
-
-      <br />
-
-      <p className="text-base font-sans text-black-pearl">
-        Fast forward to 2021, I challenge myself to become an instructor to
-        facilitate learning for others. Then, I landed my first internship at{" "}
-        <Link
-          href="https://www.bni.co.id/"
-          target="_blank"
-          className="text-bni font-semibold"
-        >
-          Bank Negara Indonesia
-        </Link>{" "}
-        as a fullstack developer. This is where I gained valuable experience
-        working on real-world projects and collaborate with professionals.
-      </p>
-
-      <br />
-
-      <p className="text-base font-sans text-black-pearl">
-        After that, I opened my own freelance project while finishing my
-        studies. At least there was five projects I worked on during that time.
-        This experience taught me how to manage my time effectively and deliver
-        high-quality work to clients.
-      </p>
-
-      <br />
-
-      <p className="text-base font-sans text-black-pearl">
-        Now, I work as a fullstack web3 developer at{" "}
-        <Link
-          href="https://tokenminds.co/"
-          target="_blank"
-          className="text-tokenminds font-semibold"
-        >
-          TokenMinds
-        </Link>{" "}
-        , where I focused on building dApp applications. Mostly I do work on
-        smart contract integration and some backend stuff. Web3 gave me a lot of
-        opportunities, winning some{" "}
-        <Link
-          href="https://devfolio.co/@wildanzrrr"
-          target="_blank"
-          className="text-brawijaya font-semibold"
-        >
-          hackathons
-        </Link>
-        , attending global conferences, and building a network with other
-        founders and builders.
-      </p>
+          <div className="flex items-center space-x-3 mb-3 group">
+            <category.icon
+              size={20}
+              className="text-gray-500 group-hover:text-brawijaya transition-colors duration-200"
+              weight="duotone"
+            />
+            <h3 className="text-lg font-semibold text-black-pearl group-hover:text-brawijaya transition-colors duration-200">
+              {category.title}
+            </h3>
+          </div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {category.skills.map((skill, skillIndex) => (
+              <motion.span
+                key={skillIndex}
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.1 + skillIndex * 0.05,
+                }}
+                className="text-gray-600 hover:text-black-pearl transition-colors duration-200 cursor-default"
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+      ))}
     </motion.div>
   );
 };

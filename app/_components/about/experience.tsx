@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { EXPERIENCES } from "@/lib/constants";
 
 const AboutExperience = () => {
   return (
@@ -21,54 +22,80 @@ const AboutExperience = () => {
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       style={{ perspective: 1000 }}
+      className="space-y-8"
     >
-      <p className="text-base font-sans text-black-pearl">
-        Fast forward to 2021, I challenge myself to become an instructor to
-        facilitate learning for others. Then, I landed my first internship at{" "}
-        <Link
-          href="https://www.bni.co.id/"
-          target="_blank"
-          className="text-bni font-semibold"
+      {EXPERIENCES.map((experience, index) => (
+        <motion.div
+          key={experience.id}
+          initial={{
+            opacity: 0,
+            x: -30,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 0.4,
+            delay: index * 0.1,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
+          className="relative border-l-2 border-gray-200 pl-8 pb-8 last:pb-0"
         >
-          Bank Negara Indonesia
-        </Link>{" "}
-        as a fullstack developer. This is where I gained valuable experience
-        working on real-world projects and collaborate with professionals.
-      </p>
+          {/* Timeline dot with icon */}
+          <div className="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full bg-white border-2 border-gray-200 shadow-sm">
+            <experience.icon
+              size={24}
+              className={`${experience.color} transition-colors`}
+            />
+          </div>
 
-      <br />
+          {/* Experience content */}
+          <div className="space-y-3">
+            <div className="space-y-1">
+              <h3 className="text-xl font-bold text-black-pearl">
+                {experience.title}
+              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 text-gray-600">
+                {experience.link ? (
+                  <Link
+                    href={experience.link}
+                    target="_blank"
+                    className={`${experience.color} font-semibold hover:underline transition-colors`}
+                  >
+                    {experience.company}
+                  </Link>
+                ) : (
+                  <span className={`${experience.color} font-semibold`}>
+                    {experience.company}
+                  </span>
+                )}
+                <span className="hidden sm:inline">•</span>
+                <span>{experience.location}</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 text-sm text-gray-500">
+                <span className="font-medium">{experience.type}</span>
+                <span className="hidden sm:inline">•</span>
+                <span>{experience.period}</span>
+              </div>
+            </div>
 
-      <p className="text-base font-sans text-black-pearl">
-        After that, I opened my own freelance project while finishing my
-        studies. At least there was five projects I worked on during that time.
-        This experience taught me how to manage my time effectively and deliver
-        high-quality work to clients.
-      </p>
-
-      <br />
-
-      <p className="text-base font-sans text-black-pearl">
-        Now, I work as a fullstack web3 developer at{" "}
-        <Link
-          href="https://tokenminds.co/"
-          target="_blank"
-          className="text-tokenminds font-semibold"
-        >
-          TokenMinds
-        </Link>{" "}
-        , where I focused on building dApp applications. Mostly I do work on
-        smart contract integration and some backend stuff. Web3 gave me a lot of
-        opportunities, winning some{" "}
-        <Link
-          href="https://devfolio.co/@wildanzrrr"
-          target="_blank"
-          className="text-brawijaya font-semibold"
-        >
-          hackathons
-        </Link>
-        , attending global conferences, and building a network with other
-        founders and builders.
-      </p>
+            <div className="space-y-2">
+              {experience.achievements.map((achievement, achievementIndex) => (
+                <div
+                  key={achievementIndex}
+                  className="flex items-start space-x-3"
+                >
+                  <div className="mt-2 h-1.5 w-1.5 rounded-full bg-gray-400 flex-shrink-0" />
+                  <p className="text-base text-black-pearl leading-relaxed">
+                    {achievement}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      ))}
     </motion.div>
   );
 };

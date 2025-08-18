@@ -22,7 +22,7 @@ const AboutBackground = () => {
       }}
       style={{ perspective: 1000 }}
     >
-      <p className="text-base font-sans text-black-pearl">
+      <p className="text-base font-sans text-black-pearl text-justify">
         I start this journey in 2019 at{" "}
         <Link
           href="https://www.instagram.com/univ.brawijaya/"
@@ -39,7 +39,7 @@ const AboutBackground = () => {
 
       <br />
 
-      <p className="text-base font-sans text-black-pearl">
+      <p className="text-base font-sans text-black-pearl text-justify">
         Fast forward to 2021, I challenge myself to become an instructor to
         facilitate learning for others. Then, I landed my first internship at{" "}
         <Link
@@ -55,7 +55,7 @@ const AboutBackground = () => {
 
       <br />
 
-      <p className="text-base font-sans text-black-pearl">
+      <p className="text-base font-sans text-black-pearl text-justify">
         After that, I opened my own freelance project while finishing my
         studies. At least there was five projects I worked on during that time.
         This experience taught me how to manage my time effectively and deliver
@@ -64,7 +64,7 @@ const AboutBackground = () => {
 
       <br />
 
-      <p className="text-base font-sans text-black-pearl">
+      <p className="text-base font-sans text-black-pearl text-justify">
         Now, I work as a fullstack web3 developer at{" "}
         <Link
           href="https://tokenminds.co/"

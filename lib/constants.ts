@@ -137,3 +137,44 @@ export const EXPERIENCES = [
     ],
   },
 ];
+
+export const PORTFOLIO_ITEMS = [
+  {
+    id: 1,
+    title: "VRPlaced",
+    description:
+      "VRPlaced is a virtual reality-based platform that allows users to take interviews in a virtual environment using AR and VR technology. Experience immersive interviews with cutting-edge VR/AR integration.",
+    images: [
+      "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80", // VR headset
+      "https://images.unsplash.com/photo-1516110833967-0b5716ca75b1?w=800&q=80", // Virtual meeting
+      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80", // AR interface
+    ],
+    link: "https://vrplaced.com",
+    techStack: ["Next.js", "TypeScript", "WebXR", "Three.js", "WebRTC"],
+  },
+  {
+    id: 2,
+    title: "FreehandX",
+    description:
+      "It's not just another virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them. Perfect for remote teams and creative collaboration.",
+    images: [
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80", // Digital whiteboard
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80", // Collaborative work
+    ],
+    link: "https://freehandx.com",
+    techStack: ["React", "Canvas API", "WebSocket", "Node.js", "Socket.io"],
+  },
+  {
+    id: 3,
+    title: "Web3 DeFi Platform",
+    description:
+      "A comprehensive decentralized finance platform with yield farming, staking, and NFT marketplace integration. Built with security and user experience in mind.",
+    images: [
+      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80", // Blockchain visualization
+      "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=800&q=80", // DeFi interface
+      "https://images.unsplash.com/photo-1638913658179-18c9a9c943f2?w=800&q=80", // Crypto trading
+    ],
+    link: "#",
+    techStack: ["Solidity", "Next.js", "Web3.js", "Hardhat", "IPFS"],
+  },
+];

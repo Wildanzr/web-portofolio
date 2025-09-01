@@ -20,7 +20,7 @@ const skillCategories = [
   {
     title: "Front-end Development",
     icon: PaintBrushIcon,
-    skills: ["HTML/CSS", "Tailwindcss", "Next.js", "Expo"],
+    skills: ["Next.js", "Expo", "Tailwindcss"],
   },
   {
     title: "Back-end Development",
@@ -40,12 +40,12 @@ const skillCategories = [
   {
     title: "AI Stuff",
     icon: RobotIcon,
-    skills: ["Anthropic", "OpenAI"],
+    skills: ["Anthropic", "MCP", "Eliza AI"],
   },
   {
     title: "Other",
     icon: GitBranchIcon,
-    skills: ["Git", "Docker", "GCP", "AWS"],
+    skills: ["Git", "Docker", "GCP", "RabbitMQ", "Redis", "CI/CD", "Datadog"],
   },
 ];
 

@@ -47,7 +47,7 @@ const About = () => {
       id="about"
       className="flex flex-col items-center justify-center w-full h-full gap-5 lg:h-screen gradient-linear-reverse lg:flex-row lg:justify-between"
     >
-      <div className="container mx-auto p-5 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:items-center lg:justify-center">
+      <div className="container mx-auto p-5 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:items-start lg:justify-center">
         <div className="order-last lg:order-first flex w-full h-40 bg-red-500"></div>
         <div className="w-full h-full flex flex-col space-y-5">
           <h3 className="text-4xl font-bold text-black-pearl lg:text-5xl">

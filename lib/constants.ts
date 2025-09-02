@@ -146,7 +146,6 @@ export const PORTFOLIO_ITEMS = [
       "VRPlaced is a virtual reality-based platform that allows users to take interviews in a virtual environment using AR and VR technology. Experience immersive interviews with cutting-edge VR/AR integration.",
     images: [
       "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80", // VR headset
-      "https://images.unsplash.com/photo-1516110833967-0b5716ca75b1?w=800&q=80", // Virtual meeting
       "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80", // AR interface
     ],
     link: "https://vrplaced.com",
@@ -172,7 +171,6 @@ export const PORTFOLIO_ITEMS = [
     images: [
       "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80", // Blockchain visualization
       "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=800&q=80", // DeFi interface
-      "https://images.unsplash.com/photo-1638913658179-18c9a9c943f2?w=800&q=80", // Crypto trading
     ],
     link: "#",
     techStack: ["Solidity", "Next.js", "Web3.js", "Hardhat", "IPFS"],

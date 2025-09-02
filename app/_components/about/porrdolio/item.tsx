@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -29,19 +30,66 @@ const Item = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
+  const nextImage = useCallback(
+    (e?: React.MouseEvent) => {
+      e?.stopPropagation();
+      setImageLoaded(false);
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    },
+    [images.length]
+  );
 
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  const prevImage = useCallback(
+    (e?: React.MouseEvent) => {
+      e?.stopPropagation();
+      setImageLoaded(false);
+      setCurrentImageIndex(
+        (prev) => (prev - 1 + images.length) % images.length
+      );
+    },
+    [images.length]
+  );
 
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
+  const goToImage = (index: number, e?: React.MouseEvent) => {
+    e?.stopPropagation();
     setImageLoaded(false);
+    setCurrentImageIndex(index);
   };
+
+  const openModal = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  // Keyboard navigation for modal
+  useEffect(() => {
+    if (!showModal) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case "Escape":
+          closeModal();
+          break;
+        case "ArrowLeft":
+          e.preventDefault();
+          prevImage();
+          break;
+        case "ArrowRight":
+          e.preventDefault();
+          nextImage();
+          break;
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [showModal, nextImage, prevImage]);
 
   return (
     <motion.div
@@ -74,17 +122,23 @@ const Item = ({
         )}
 
         <AnimatePresence mode="wait">
-          <motion.img
+          <motion.div
             key={currentImageIndex}
-            src={images[currentImageIndex]}
-            alt={`${title} - Image ${currentImageIndex + 1}`}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: imageLoaded ? 1 : 0, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.3 }}
-            onLoad={() => setImageLoaded(true)}
-            className="w-full h-full object-cover"
-          />
+            className="w-full h-full relative"
+          >
+            <Image
+              src={images[currentImageIndex]}
+              alt={`${title} - Image ${currentImageIndex + 1}`}
+              fill
+              className="object-cover"
+              onLoad={() => setImageLoaded(true)}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </motion.div>
         </AnimatePresence>
 
         {/* Image Navigation - Only show if multiple images */}
@@ -96,7 +150,7 @@ const Item = ({
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.2 }}
               onClick={prevImage}
-              className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200"
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 z-10"
             >
               <ArrowLeftIcon size={16} weight="bold" />
             </motion.button>
@@ -106,7 +160,7 @@ const Item = ({
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.2 }}
               onClick={nextImage}
-              className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200"
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 z-10"
             >
               <ArrowRightIcon size={16} weight="bold" />
             </motion.button>
@@ -116,12 +170,12 @@ const Item = ({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: isHovered ? 1 : 0.7, y: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2"
+              className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10"
             >
               {images.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => goToImage(index)}
+                  onClick={(e) => goToImage(index, e)}
                   className={`w-2 h-2 rounded-full transition-all duration-200 ${
                     index === currentImageIndex
                       ? "bg-white scale-125"
@@ -138,16 +192,17 @@ const Item = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-black/20 flex items-center justify-center"
+          className="absolute inset-0 bg-black/20 flex items-center justify-center z-5"
         >
-          <motion.div
+          <motion.button
             initial={{ scale: 0 }}
             animate={{ scale: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
-            className="bg-white/90 backdrop-blur-sm p-3 rounded-full"
+            onClick={openModal}
+            className="bg-white/90 backdrop-blur-sm p-3 rounded-full hover:bg-white transition-all duration-200 cursor-pointer"
           >
             <EyeIcon size={24} className="text-black-pearl" weight="duotone" />
-          </motion.div>
+          </motion.button>
         </motion.div>
       </div>
 
@@ -230,6 +285,100 @@ const Item = ({
         transition={{ duration: 0.3 }}
         className="absolute inset-0 border-2 border-brawijaya rounded-2xl pointer-events-none"
       />
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={images[currentImageIndex]}
+                alt={`${title} - Image ${currentImageIndex + 1}`}
+                fill
+                className="object-contain"
+                sizes="90vw"
+              />
+
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+
+              {/* Modal Navigation - Only show if multiple images */}
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      prevImage();
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-200"
+                  >
+                    <ArrowLeftIcon size={20} weight="bold" />
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      nextImage();
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full backdrop-blur-sm transition-all duration-200"
+                  >
+                    <ArrowRightIcon size={20} weight="bold" />
+                  </button>
+
+                  {/* Modal Image Indicators */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+                    {images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          goToImage(index);
+                        }}
+                        className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                          index === currentImageIndex
+                            ? "bg-white scale-125"
+                            : "bg-white/50 hover:bg-white/75"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

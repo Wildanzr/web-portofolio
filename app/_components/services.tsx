@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Services = () => {
   return (
     <section
-      id="work"
+      id="services"
       className="flex flex-col items-center justify-center w-full min-h-screen py-20 gradient-linear-reverse"
     >
       <div className="container mx-auto px-5">

@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const Jumbotron = () => {
   return (
-    <section className="w-full h-screen gradient-linear-start pt-20">
+    <section className="w-full h-screen gradient-linear-start pt-20" id="home">
       <div className="container mx-auto p-5 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:items-center lg:justify-center">
         <div className="flex flex-col w-full space-y-10 items-center justify-center">
           <div className="flex flex-col items-start max-w-md md:max-w-lg">

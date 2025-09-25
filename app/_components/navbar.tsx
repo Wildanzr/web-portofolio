@@ -16,7 +16,7 @@ import { CaretRightIcon, ListIcon, XIcon } from "@phosphor-icons/react/ssr";
 import { NAVIGATION_MENUS } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ activeSection }: { activeSection: string }) => {
   return (
     <div className="container flex items-center justify-between w-full h-full px-5 mx-auto lg:hidden">
       <Link href="/" className="text-3xl font-bold text-black-pearl">
@@ -45,47 +45,57 @@ const MobileNavbar = () => {
 
           <div className="flex flex-col w-full h-full space-y-5 container mx-auto">
             <ul className="flex flex-col items-start justify-start w-full h-full space-y-5 text-lg font-semibold text-black-pearl">
-              {NAVIGATION_MENUS.map((item, idx) => (
-                <motion.li
-                  key={idx}
-                  className="flex w-full h-16 px-5 transition-colors duration-200 rounded-lg"
-                  whileHover={{
-                    skewX: -5,
-                    x: 15,
-                    transition: { type: "spring", stiffness: 300, damping: 20 },
-                  }}
-                  whileTap={{ skewX: 0, x: 0 }}
-                >
-                  <Link
-                    href={item.url}
-                    className="flex w-full items-center justify-between space-x-2"
+              {NAVIGATION_MENUS.map((item, idx) => {
+                const sectionId = item.url === "/" ? "home" : item.url.slice(1);
+                const isActive = activeSection === sectionId;
+                return (
+                  <motion.li
+                    key={idx}
+                    className="flex w-full h-16 px-5 transition-colors duration-200 rounded-lg"
+                    whileHover={{
+                      skewX: -5,
+                      x: 15,
+                      transition: {
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                      },
+                    }}
+                    whileTap={{ skewX: 0, x: 0 }}
                   >
-                    <div className="flex flex-row items-center space-x-3">
-                      <motion.span
-                        className="text-2xl font-semibold text-white-sand"
+                    <Link
+                      href={item.url}
+                      className="flex w-full items-center justify-between space-x-2"
+                    >
+                      <div className="flex flex-row items-center space-x-3">
+                        <motion.span
+                          className={`text-2xl font-semibold text-white-sand ${
+                            isActive ? "underline" : ""
+                          }`}
+                          whileHover={{
+                            skewX: -10,
+                            transition: { duration: 0.3 },
+                          }}
+                        >
+                          {item.title}
+                        </motion.span>
+                      </div>
+                      <motion.div
                         whileHover={{
-                          skewX: -10,
-                          transition: { duration: 0.3 },
+                          opacity: [1, 0.5, 1],
+                          x: 12,
+                          transition: { duration: 0.6 },
                         }}
                       >
-                        {item.title}
-                      </motion.span>
-                    </div>
-                    <motion.div
-                      whileHover={{
-                        opacity: [1, 0.5, 1],
-                        x: 12,
-                        transition: { duration: 0.6 },
-                      }}
-                    >
-                      <CaretRightIcon
-                        className="size-6 text-white-sand"
-                        weight="duotone"
-                      />
-                    </motion.div>
-                  </Link>
-                </motion.li>
-              ))}
+                        <CaretRightIcon
+                          className="size-6 text-white-sand"
+                          weight="duotone"
+                        />
+                      </motion.div>
+                    </Link>
+                  </motion.li>
+                );
+              })}
             </ul>
           </div>
         </SheetContent>
@@ -94,7 +104,7 @@ const MobileNavbar = () => {
   );
 };
 
-const DesktopNavbar = () => {
+const DesktopNavbar = ({ activeSection }: { activeSection: string }) => {
   return (
     <div className="container items-center justify-between hidden w-full h-full mx-auto lg:flex">
       <Link
@@ -105,25 +115,33 @@ const DesktopNavbar = () => {
       </Link>
 
       <ul className="flex items-center justify-center w-full h-full space-x-10 text-lg font-semibold text-black-pearl">
-        {NAVIGATION_MENUS.map((item, idx) => (
-          <motion.li
-            key={idx}
-            className="flex items-center space-x-2 transition-colors duration-200 rounded-lg hover:bg-white/10"
-            whileHover={{
-              skewX: -5,
-              x: 15,
-              transition: { type: "spring", stiffness: 300, damping: 20 },
-            }}
-            whileTap={{ skewX: 0, x: 0 }}
-          >
-            <Link href={item.url} className="flex items-center space-x-2">
-              {/* <item.Icon className="size-6 text-black-pearl" weight="duotone" /> */}
-              <span className="text-lg font-light text-black-pearl hover:font-semibold transition-all duration-300 ease-out">
-                {item.title}
-              </span>
-            </Link>
-          </motion.li>
-        ))}
+        {NAVIGATION_MENUS.map((item, idx) => {
+          const sectionId = item.url === "/" ? "home" : item.url.slice(1);
+          const isActive = activeSection === sectionId;
+          return (
+            <motion.li
+              key={idx}
+              className="flex items-center space-x-2 transition-colors duration-200 rounded-lg hover:bg-white/10"
+              whileHover={{
+                skewX: -5,
+                x: 15,
+                transition: { type: "spring", stiffness: 300, damping: 20 },
+              }}
+              whileTap={{ skewX: 0, x: 0 }}
+            >
+              <Link href={item.url} className="flex items-center space-x-2">
+                {/* <item.Icon className="size-6 text-black-pearl" weight="duotone" /> */}
+                <span
+                  className={`text-lg ${
+                    isActive ? "font-medium underline" : "font-light"
+                  } text-black-pearl hover:font-semibold transition-all duration-300 ease-out`}
+                >
+                  {item.title}
+                </span>
+              </Link>
+            </motion.li>
+          );
+        })}
       </ul>
 
       <Button>
@@ -138,6 +156,7 @@ const DesktopNavbar = () => {
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -165,6 +184,27 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <motion.div
       className="fixed top-0 w-full h-20 bg-white/10 backdrop-blur-lg border-b border-white/20 shadow-lg z-50 before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/5 before:to-transparent before:pointer-events-none"
@@ -178,8 +218,8 @@ const Navbar = () => {
         ease: "easeInOut",
       }}
     >
-      <MobileNavbar />
-      <DesktopNavbar />
+      <MobileNavbar activeSection={activeSection} />
+      <DesktopNavbar activeSection={activeSection} />
     </motion.div>
   );
 };

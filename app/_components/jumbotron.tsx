@@ -8,6 +8,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Jumbotron = () => {
   return (
@@ -41,10 +42,12 @@ const Jumbotron = () => {
           </div>
 
           <div className="flex flex-row items-center justify-start w-full max-w-md md:max-w-lg gap-5">
-            <Button className="w-fit cursor-pointer">
-              Contact Me
-              <CalendarDotsIcon />
-            </Button>
+            <Link href="#contact">
+              <Button className="w-fit cursor-pointer">
+                Contact Me
+                <CalendarDotsIcon />
+              </Button>
+            </Link>
             <Button className="w-fit rounded-full bg-ice-cold text-jewel hover:bg-ice-cold">
               <div className="flex items-center gap-2">
                 <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>

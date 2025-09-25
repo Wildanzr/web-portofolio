@@ -7,6 +7,7 @@ import {
   LinkedinLogoIcon,
   GithubLogoIcon,
   XLogoIcon,
+  DownloadIcon,
 } from "@phosphor-icons/react";
 
 const Contact = () => {
@@ -74,7 +75,7 @@ const Contact = () => {
             </div>
             <div className="flex flex-col items-start justify-between py-4">
               <h4 className="text-xl font-semibold text-black-pearl">
-                Let&apos;s Network!
+                Let&apos;s Connect!
               </h4>
               <h4 className="text-base font-light text-black-pearl/70">
                 @wildanzrrr
@@ -94,7 +95,7 @@ const Contact = () => {
             </div>
             <div className="flex flex-col items-start justify-between py-4">
               <h4 className="text-xl font-semibold text-black-pearl">
-                Check My Code
+                Peep My Code
               </h4>
               <h4 className="text-base font-light text-black-pearl/70">
                 @wildanzrrr
@@ -120,6 +121,25 @@ const Contact = () => {
                 @wildanzrrr
               </h4>
             </div>
+          </motion.a>
+        </motion.div>
+
+        {/* Download Resume */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-8 flex justify-center"
+        >
+          <motion.a
+            href="https://drive.google.com/file/d/1xK3mwexU-A50mNuk36j2qLEBRHQqNOMH/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center space-x-2 text-black-pearl hover:text-brawijaya transition-colors duration-300"
+          >
+            <DownloadIcon className="size-6" />
+            <span className="text-lg font-medium">peek my cv... 👀</span>
           </motion.a>
         </motion.div>
       </div>

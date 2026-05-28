@@ -45,7 +45,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="flex flex-col items-center justify-center w-full h-full gap-5 lg:h-screen gradient-linear-reverse lg:flex-row lg:justify-between"
+      className="flex flex-col items-center justify-center w-full h-full gap-5 lg:min-h-screen gradient-linear-reverse lg:flex-row lg:justify-between"
     >
       <div className="container mx-auto p-5 w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:items-start lg:justify-center">
         <div className="order-last lg:order-first flex w-full h-40 bg-red-500"></div>
@@ -54,13 +54,16 @@ const About = () => {
             Software Engineer & System Design
           </h3>
 
-          <Tabs defaultValue={activeTab} className="w-full h-full">
+          <Tabs
+            value={activeTab}
+            onValueChange={handleTabChange}
+            className="w-full h-full"
+          >
             <TabsList className="relative bg-transparent border-0 p-0 w-full grid grid-cols-4">
               {TAB_MENUS.map((item, idx) => (
                 <TabsTrigger
                   value={item.title.toLowerCase()}
                   key={idx}
-                  onClick={() => handleTabChange(item.title.toLowerCase())}
                   className="data-[state=active]:bg-transparent data-[state=active]:shadow-none group cursor-pointer relative p-0 flex-1"
                 >
                   <div className="flex flex-row space-x-2.5 pb-6 px-2 justify-center">

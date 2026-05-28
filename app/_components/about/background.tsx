@@ -23,7 +23,7 @@ const AboutBackground = () => {
       style={{ perspective: 1000 }}
     >
       <p className="text-base font-sans text-black-pearl text-justify">
-        I start this journey in 2019 at{" "}
+        Yo, kicked off my journey in 2019 at{" "}
         <Link
           href="https://www.instagram.com/univ.brawijaya/"
           target="_blank"
@@ -31,17 +31,16 @@ const AboutBackground = () => {
         >
           Brawijaya University
         </Link>
-        , where I studied Computer Science. First semester? I can&apos;t do any
-        code as fuck, LOL. Then quarter life crisis hit me, and I realized I
-        needed to choose my path. Long story short, I practiced more and more
-        code on my own.
+        , majoring in Computer Science. First semester? Couldn&apos;t code for
+        shit, LOL. Then that quarter-life crisis hit hard, and I was like,
+        &apos;Time to pick a lane.&apos; So I grinded coding on my own, no cap.
       </p>
 
       <br />
 
       <p className="text-base font-sans text-black-pearl text-justify">
-        Fast forward to 2021, I challenge myself to become an instructor to
-        facilitate learning for others. Then, I landed my first internship at{" "}
+        Fast forward to 2021, I challenged myself to become an instructor and
+        help others level up. Then, snagged my first internship at{" "}
         <Link
           href="https://www.bni.co.id/"
           target="_blank"
@@ -49,23 +48,22 @@ const AboutBackground = () => {
         >
           Bank Negara Indonesia
         </Link>{" "}
-        as a fullstack developer. This is where I gained valuable experience
-        working on real-world projects and collaborate with professionals.
+        as a fullstack dev. That&apos;s where I got that real-world experience,
+        working on actual projects and collabing with pros.
       </p>
 
       <br />
 
       <p className="text-base font-sans text-black-pearl text-justify">
-        After that, I opened my own freelance project while finishing my
-        studies. At least there was five projects I worked on during that time.
-        This experience taught me how to manage my time effectively and deliver
-        high-quality work to clients.
+        After that, I started my own freelance gig while wrapping up uni. Did at
+        least five projects during that grind. Taught me how to juggle time like
+        a boss and deliver fire work to clients.
       </p>
 
       <br />
 
       <p className="text-base font-sans text-black-pearl text-justify">
-        Now, I work as a fullstack web3 developer at{" "}
+        Now, I&apos;m slaying as a fullstack web3 dev at{" "}
         <Link
           href="https://tokenminds.co/"
           target="_blank"
@@ -73,9 +71,8 @@ const AboutBackground = () => {
         >
           TokenMinds
         </Link>{" "}
-        , where I focused on building dApp applications. Mostly I do work on
-        smart contract integration and some backend stuff. Web3 gave me a lot of
-        opportunities, winning some{" "}
+        , building dApp vibes. Mostly handling smart contract integrations and
+        backend magic. Web3 opened up a whole world – won some{" "}
         <Link
           href="https://devfolio.co/@wildanzrrr"
           target="_blank"
@@ -83,8 +80,8 @@ const AboutBackground = () => {
         >
           hackathons
         </Link>
-        , attending global conferences, and building a network with other
-        founders and builders.
+        , attended global confs, and built a squad with other founders and
+        builders.
       </p>
     </motion.div>
   );

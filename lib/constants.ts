@@ -75,9 +75,9 @@ export const EXPERIENCES = [
     color: "text-tokenminds",
     link: "https://tokenminds.co/",
     achievements: [
-      "Build responsive web or apps per client requirements with requirements analysis, system design and technical documentation.",
-      "Develop robust APIs and microservices to support frontend applications.",
-      "Build, deploy, and interact smart contracts mainly on EVM compatible chain and Solana.",
+      "Slaying client requirements by building responsive web apps with full requirements analysis, system design, and technical docs – no cap!",
+      "Developing robust APIs and microservices that make frontend apps actually work and look fire.",
+      "Building, deploying, and interacting with smart contracts on EVM chains and Solana – Web3 wizardry at its finest.",
     ],
   },
   {
@@ -90,8 +90,8 @@ export const EXPERIENCES = [
     icon: LaptopIcon,
     color: "text-brawijaya",
     achievements: [
-      "Creating a custom web application with specific requirements from customers.",
-      "Have completed at least five projects in the last 1 year.",
+      "Creating custom web applications that match exactly what clients vibe with – no cookie-cutter stuff here.",
+      "Dropped at least five projects in the last year – staying busy and building my portfolio like a boss.",
     ],
   },
   {
@@ -105,7 +105,7 @@ export const EXPERIENCES = [
     color: "text-bni",
     link: "https://www.bni.co.id/",
     achievements: [
-      "Responsible for developing online video conference applications with scheduling, distributing, and managing appointments between customers and bank tellers.",
+      "Built an online video conference app for scheduling, distributing, and managing appointments between customers and bank tellers – making banking way more convenient.",
     ],
   },
   {
@@ -118,9 +118,9 @@ export const EXPERIENCES = [
     icon: CertificateIcon,
     color: "text-black-pearl",
     achievements: [
-      "Java Developer Scholarship Awardee (July 2021 – September 2021)",
-      "Oracle Database Scholarship Awardee (May 2022 – November 2022)",
-      "Got a scholarship from the Ministry of Communication and Information Technology of the Republic of Indonesia to learn Java and Oracle Database, then completed Oracle certification.",
+      "Java Developer Scholarship Awardee (July 2021 – September 2021) – leveling up my Java skills!",
+      "Oracle Database Scholarship Awardee (May 2022 – November 2022) – database masterclass incoming.",
+      "Scored a scholarship from the Ministry of Communication and Information Technology to learn Java and Oracle Database, then crushed the Oracle certification – knowledge unlocked!",
     ],
   },
   {
@@ -133,7 +133,7 @@ export const EXPERIENCES = [
     icon: ChalkboardTeacherIcon,
     color: "text-brawijaya",
     achievements: [
-      "Being an instructor to teach Basic Programming and Advanced Programming using Java in three classes with an average of 40 students in each class.",
+      "Teaching Basic and Advanced Programming with Java to three classes of about 40 students each – helping the next gen of coders level up!",
     ],
   },
 ];
